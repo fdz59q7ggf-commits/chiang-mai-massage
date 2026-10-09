@@ -11,6 +11,7 @@ def gmap(s):
 
 for s in shops:
     s['gmap'] = gmap(s)
+    s['gmap_th'] = s['gmap'].replace('&hl=en', '&hl=th')
 
 AREAS = ['夜市/長康路', '古城', '古城南/Wualai', '寧曼', '濱江區', '郊區', '清萊']
 TIERS = ['平價', '中價', '中價連鎖', '中高價', '高價']
@@ -20,6 +21,7 @@ md = ['# 清邁按摩總整理（含 Google 地圖與總地圖）', '',
       '6 人清邁行程（2026/11/11–11/18，住 Loi Kroh Road）用的按摩/SPA 清單。',
       '每間店都有 Google 地圖連結，另外有一張**所有按摩店的總地圖**：', '',
       '- 🗺️ **互動總地圖**：打開 [`index.html`](index.html)（可篩選區域／價位，點標記看介紹與 Google 地圖）。底圖街道與地名為英文（Esri，右上角可切換泰文 OpenStreetMap）；也可切換「Google 地圖（英文）」看每間店周邊',
+      '- 🛺 **給嘟嘟車／計程車司機看**：互動總地圖每間店都有「給司機看（泰文）」按鈕，一按就全螢幕顯示大字泰文店名、地標、地址和泰文 Google 地圖，不用複製貼上；下方表格的「🛺 泰文」連結會開泰文介面的 Google 地圖',
       '- 🔤 所有 Google 地圖連結都加上 `hl=en`，開啟後街道名稱顯示英文，方便對照路牌或給司機看',
       '- 📍 **Google 我的地圖版**：到 [Google 我的地圖](https://www.google.com/maps/d/) → 建立新地圖 → 匯入 → 上傳 [`massage.kml`](massage.kml)，就會得到一張可在手機 Google Maps 開啟的總圖',
       '', '> 價格、營業時間整理自公開資料（官網、Klook、KKday、Chiang Mai Citylife 等），可能變動，出發前請再確認。地圖上的標記位置為概略，精確位置請以各店 Google 地圖連結為準。', '',
@@ -40,10 +42,10 @@ for area in AREAS:
     md += [f'## {area}', '', '| 店名 | 價位 | 價格 | 營業時間 | 地圖 | 預約 |', '|---|---|---|---|---|---|']
     for s in rows:
         k = f"[Klook]({s['klook']})" if s['klook'] else '現場/電話'
-        md.append(f"| **{s['zh']}**<br>{s['name']} | {s['tier']} | {s['price']} | {s['hours']} | [📍 Google 地圖]({s['gmap']}) | {k} |")
+        md.append(f"| **{s['zh']}**<br>{s['name']}<br>{s['name_th']} | {s['tier']} | {s['price']} | {s['hours']} | [📍 英文]({s['gmap']})<br>[🛺 泰文]({s['gmap_th']}) | {k} |")
     md.append('')
     for s in rows:
-        md.append(f"- **{s['zh']}**：{s['desc']} 地址：{s['addr']}" + (f"；電話 {s['phone']}" if s['phone'] else '') + (f"。🗓️ {s['trip']}" if s['trip'] else ''))
+        md.append(f"- **{s['zh']}**（{s['name_th']}）：{s['desc']} 地址：{s['addr']}｜泰文地址：{s['addr_th']}" + (f"；電話 {s['phone']}" if s['phone'] else '') + (f"。🗓️ {s['trip']}" if s['trip'] else ''))
     md.append('')
 md += ['## 按摩小常識', '',
        '- **泰式按摩（Thai）**：不用油、穿寬鬆衣服，拉筋按壓，力道偏重；不喜歡痛可說 "soft, please"。',
@@ -73,7 +75,7 @@ md += ['## 按摩小常識', '',
 e = html.escape
 pm = []
 for s in shops:
-    d = f"{s['desc']}<br>地址：{s['addr']}<br>價格：{s['price']}<br>營業：{s['hours']}" + (f"<br>電話：{s['phone']}" if s['phone'] else '') + (f"<br>預約：{s['klook']}" if s['klook'] else '')
+    d = f"{s['name_th']}<br>{s['desc']}<br>地址：{s['addr']}<br>ที่อยู่：{s['addr_th']}<br>價格：{s['price']}<br>營業：{s['hours']}" + (f"<br>電話：{s['phone']}" if s['phone'] else '') + (f"<br>預約：{s['klook']}" if s['klook'] else '')
     pm.append(f"<Placemark><name>{e(s['zh'])}</name><description><![CDATA[{d}]]></description><Point><coordinates>{s['lng']},{s['lat']},0</coordinates></Point></Placemark>")
 folders = ''.join(f"<Folder><name>{e(a)}</name>" + ''.join(p for s, p in zip(shops, pm) if s['area'] == a) + '</Folder>' for a in AREAS)
 (D / 'massage.kml').write_text(f'<?xml version="1.0" encoding="UTF-8"?>\n<kml xmlns="http://www.opengis.net/kml/2.2"><Document><name>清邁按摩總圖</name>{folders}</Document></kml>\n', encoding='utf-8')
