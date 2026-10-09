@@ -1,17 +1,18 @@
 #!/usr/bin/env python3
 """由 shops.json 產生 README.md、massage.kml（可匯入 Google 我的地圖）與 index.html（總地圖）。"""
-import json, html, urllib.parse, pathlib
+import json, html, urllib.parse, pathlib, re
 
 D = pathlib.Path(__file__).parent
 shops = json.loads((D / 'shops.json').read_text(encoding='utf-8'))
 
 def gmap(s):
-    return 'https://www.google.com/maps/search/?api=1&query=' + urllib.parse.quote(f"{s['name']} {s['addr']}")
+    addr = re.sub(r'（[^）]*）', '', s['addr'])
+    return 'https://www.google.com/maps/search/?api=1&query=' + urllib.parse.quote(f"{s['name']} {addr}")
 
 for s in shops:
     s['gmap'] = gmap(s)
 
-AREAS = ['夜市/長康路', '古城', '寧曼', '濱江區', '清萊']
+AREAS = ['夜市/長康路', '古城', '古城南/Wualai', '寧曼', '濱江區', '郊區', '清萊']
 TIERS = ['平價', '中價', '中價連鎖', '中高價', '高價']
 
 # ---------- README ----------
@@ -23,10 +24,14 @@ md = ['# 清邁按摩總整理（含 Google 地圖與總地圖）', '',
       '', '> 價格、營業時間整理自公開資料（官網、Klook、KKday、Chiang Mai Citylife 等），可能變動，出發前請再確認。地圖上的標記位置為概略，精確位置請以各店 Google 地圖連結為準。', '',
       '## 怎麼選', '',
       '| 需求 | 推薦 |', '|---|---|',
-      '| 每天平價按一下（250～350銖/小時） | Lila Thai Massage（古城多家）、女子監獄按摩 |',
+      '| 每天平價按一下（250～350銖/小時） | Lila Thai Massage（古城多家）、女子監獄按摩、Green Bamboo、Daracha、Relax Express |',
+      '| 清邁特有 Tok Sen 木槌按摩／寺廟按摩 | 潘萬寺（古城，可現場排）、銀廟 Wat Sri Suphan（需提前約一週預約） |',
+      '| 晚上很晚還想按 | Let\'s Relax（到24:00）、Relax Express（到24:00）、Cozy 寧曼15巷（到01:00） |',
+      '| 深度傳統泰醫體驗 | 舊醫院按摩學校、Baan Hom 草藥中心（含草藥蒸浴） |',
       '| 6 人同時預約、CP 值高 | Health Land（長康路）、Let\'s Relax（各分店營業到午夜） |',
       '| 想要環境氣氛（1,500銖起/2小時） | Fah Lanna、Makkha |',
-      '| 奢華犒賞 | Oasis Spa、Zira Spa、RarinJinda |',
+      '| 奢華犒賞 | Oasis Spa、Zira Spa、RarinJinda、Dheva Spa（Dhara Dhevi） |',
+      '| 免費飯店接送 | Kiyora Spa（市區內） |',
       '| 離民宿（Loi Kroh Rd）最近 | Makkha 夜市店、Fah Lanna 夜市店、Let\'s Relax Pavilion、Health Land |', '']
 for area in AREAS:
     rows = [s for s in shops if s['area'] == area]
@@ -54,6 +59,11 @@ md += ['## 按摩小常識', '',
        '- Fah Lanna 官網：https://fahlanna.com/',
        '- 慢活豬義 清邁SPA格價：https://piggyhygge.com/thailand-chiangmai-spa-massage/',
        '- 蔡小妞 清邁按摩推薦：https://tsnio.com/chiangmai-massage/',
+       '- Time Out 寺廟按摩（銀廟/潘萬寺）：https://www.timeout.com/chiang-mai/attractions/chiang-mais-top-5-temple-massages',
+       '- Jetsetting Fools 清邁泰式按摩：https://jetsettingfools.com/traditional-thai-massages/',
+       '- Kiyora Spa 官網：https://kiyoraspa.com/contact-us/',
+       '- Baan Hom Samunphrai 官網：https://homprang.com/',
+       '- Dheva Spa（Chiang Mai Citylife）：https://chiangmaicitylife.com/citylife-articles/dheva-spa-wellness-centre',
        '- NBC 女子監獄按摩：https://www.nbcnews.com/news/asian-america/what-its-get-massage-thai-prison-n348986', '',
        '## 更新方式', '', '編輯 `shops.json` 後執行 `python3 build.py`，會重新產生 README.md、massage.kml、index.html。', '']
 (D / 'README.md').write_text('\n'.join(md), encoding='utf-8')
