@@ -19,7 +19,11 @@ h1{margin:0 0 4px;font-size:22px}
 .chip{border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:999px;padding:5px 12px;font-size:13px;cursor:pointer}
 .chip.on{background:var(--accent);border-color:var(--accent);color:#fff}
 .wrap{max-width:1200px;margin:0 auto;padding:0 16px 24px;display:grid;grid-template-columns:1fr 380px;gap:16px}
-#map{height:calc(100vh - 170px);min-height:420px;border-radius:12px;border:1px solid var(--line)}
+#map,#gmap{height:calc(100vh - 210px);min-height:420px;border-radius:12px;border:1px solid var(--line)}
+#gmap{display:none;width:100%;background:var(--paper)}
+.mapside{display:flex;flex-direction:column;gap:8px}
+.views{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.views .note{font-size:12px;color:var(--muted)}
 .list{height:calc(100vh - 170px);min-height:420px;overflow:auto;display:flex;flex-direction:column;gap:8px}
 .card{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:12px;cursor:pointer}
 .card:hover,.card.sel{border-color:var(--accent)}
@@ -37,7 +41,7 @@ h1{margin:0 0 4px;font-size:22px}
 .pin span{transform:rotate(45deg);color:#fff;font-size:11px;font-weight:700}
 .leaflet-popup-content{font-size:13px;line-height:1.5}
 .leaflet-popup-content a{color:#c8553d;font-weight:600}
-@media (max-width:820px){.wrap{grid-template-columns:1fr}#map{height:55vh}.list{height:auto}}
+@media (max-width:820px){.wrap{grid-template-columns:1fr}#map,#gmap{height:55vh}.list{height:auto}}
 </style>
 </head>
 <body>
@@ -49,7 +53,15 @@ h1{margin:0 0 4px;font-size:22px}
   <div class="legend" id="legend"></div>
 </header>
 <div class="wrap">
-  <div id="map"></div>
+  <div class="mapside">
+    <div class="views" id="views">
+      <button class="chip on" data-view="all">🗺️ 總圖（英文街名）</button>
+      <button class="chip" data-view="google">📍 Google 地圖（英文）</button>
+      <span class="note" id="gnote">點清單或標記，切到 Google 地圖看該店周邊</span>
+    </div>
+    <div id="map"></div>
+    <iframe id="gmap" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Google 地圖"></iframe>
+  </div>
   <div class="list" id="list"></div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
@@ -78,7 +90,8 @@ let map = null, layer = null;
 const markers = {};
 if (window.L) {
   map = L.map('map', {scrollWheelZoom:true}).setView([HOME.lat, HOME.lng], 14);
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {maxZoom:19, attribution:'&copy; OpenStreetMap'}).addTo(map);
+  // CARTO Voyager 底圖：街道與地名以英文（拉丁字母）顯示
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {maxZoom:20, subdomains:'abcd', attribution:'&copy; OpenStreetMap contributors &copy; CARTO'}).addTo(map);
   L.marker([HOME.lat, HOME.lng], {icon: L.divIcon({className:'', html:'<div class="pin" style="background:#222"><span>🏠</span></div>', iconSize:[26,26], iconAnchor:[13,26]})})
     .addTo(map).bindPopup('<b>'+HOME.name+'</b><br>住宿位置（概略）');
   layer = L.layerGroup().addTo(map);
@@ -118,8 +131,30 @@ function highlight(){
   document.querySelectorAll('.card').forEach(c=>c.classList.toggle('sel', c.dataset.id===selected));
   const c = document.querySelector(`.card[data-id="${selected}"]`); if (c) c.scrollIntoView({block:'nearest', behavior:'smooth'});
 }
+let view = 'all';
+function gembed(s){
+  return 'https://maps.google.com/maps?q=' + encodeURIComponent(s.name + ' ' + s.addr.replace(/（[^）]*）/g,'')) + '&hl=en&z=17&output=embed';
+}
+function showGoogle(){
+  const s = SHOPS.find(x=>x.id===selected) || SHOPS[0];
+  if (!selected) { selected = s.id; highlight(); }
+  const g = document.getElementById('gmap');
+  const src = gembed(s);
+  if (g.dataset.src !== src) { g.src = src; g.dataset.src = src; }
+  document.getElementById('gnote').textContent = 'Google 地圖（英文）：' + s.zh;
+}
+function setView(v){
+  view = v;
+  document.querySelectorAll('#views .chip').forEach(b=>b.classList.toggle('on', b.dataset.view===v));
+  document.getElementById('map').style.display = v==='all' ? '' : 'none';
+  document.getElementById('gmap').style.display = v==='google' ? 'block' : 'none';
+  if (v==='google') showGoogle();
+  else { document.getElementById('gnote').textContent = '點清單或標記，切到 Google 地圖看該店周邊'; if (map) map.invalidateSize(); }
+}
+document.getElementById('views').onclick = e => { const v = e.target.dataset.view; if (v) setView(v); };
 function focus(id){
   selected = id; highlight();
+  if (view==='google') { showGoogle(); return; }
   const s = SHOPS.find(x=>x.id===id);
   if (map && markers[id]) { map.setView([s.lat, s.lng], 16); markers[id].openPopup(); }
 }
