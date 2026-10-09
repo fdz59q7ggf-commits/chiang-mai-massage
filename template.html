@@ -90,8 +90,10 @@ let map = null, layer = null;
 const markers = {};
 if (window.L) {
   map = L.map('map', {scrollWheelZoom:true}).setView([HOME.lat, HOME.lng], 14);
-  // CARTO Voyager 底圖：街道與地名以英文（拉丁字母）顯示
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {maxZoom:20, subdomains:'abcd', attribution:'&copy; OpenStreetMap contributors &copy; CARTO'}).addTo(map);
+  // Esri World Street Map：免金鑰，泰國街道與地名以英文顯示
+  const esri = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {maxZoom:19, attribution:'Tiles &copy; Esri'}).addTo(map);
+  const osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {maxZoom:19, attribution:'&copy; OpenStreetMap'});
+  L.control.layers({'英文街名（Esri）': esri, '泰文街名（OpenStreetMap）': osm}).addTo(map);
   L.marker([HOME.lat, HOME.lng], {icon: L.divIcon({className:'', html:'<div class="pin" style="background:#222"><span>🏠</span></div>', iconSize:[26,26], iconAnchor:[13,26]})})
     .addTo(map).bindPopup('<b>'+HOME.name+'</b><br>住宿位置（概略）');
   layer = L.layerGroup().addTo(map);
@@ -125,7 +127,10 @@ function render(){
     m.on('click', ()=>{ selected = s.id; highlight(); });
     markers[s.id] = m; layer.addLayer(m);
   });
-  if (vis.length) map.fitBounds(L.latLngBounds(vis.map(s=>[s.lat,s.lng]).concat(area==='清萊'?[]:[[HOME.lat,HOME.lng]])), {padding:[30,30], maxZoom:16});
+  // 「全部」時只框清邁市區（清萊相距約180公里、郊區店家會把地圖縮太小）
+  const fit = area==='全部' ? vis.filter(s=>s.area!=='清萊' && s.area!=='郊區') : vis;
+  const pts = (fit.length ? fit : vis).map(s=>[s.lat,s.lng]).concat(area==='清萊'?[]:[[HOME.lat,HOME.lng]]);
+  if (pts.length) map.fitBounds(L.latLngBounds(pts), {padding:[30,30], maxZoom:16});
 }
 function highlight(){
   document.querySelectorAll('.card').forEach(c=>c.classList.toggle('sel', c.dataset.id===selected));

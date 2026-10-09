@@ -19,7 +19,7 @@ TIERS = ['平價', '中價', '中價連鎖', '中高價', '高價']
 md = ['# 清邁按摩總整理（含 Google 地圖與總地圖）', '',
       '6 人清邁行程（2026/11/11–11/18，住 Loi Kroh Road）用的按摩/SPA 清單。',
       '每間店都有 Google 地圖連結，另外有一張**所有按摩店的總地圖**：', '',
-      '- 🗺️ **互動總地圖**：打開 [`index.html`](index.html)（可篩選區域／價位，點標記看介紹與 Google 地圖）。底圖街道與地名為英文；也可切換「Google 地圖（英文）」看每間店周邊',
+      '- 🗺️ **互動總地圖**：打開 [`index.html`](index.html)（可篩選區域／價位，點標記看介紹與 Google 地圖）。底圖街道與地名為英文（Esri，右上角可切換泰文 OpenStreetMap）；也可切換「Google 地圖（英文）」看每間店周邊',
       '- 🔤 所有 Google 地圖連結都加上 `hl=en`，開啟後街道名稱顯示英文，方便對照路牌或給司機看',
       '- 📍 **Google 我的地圖版**：到 [Google 我的地圖](https://www.google.com/maps/d/) → 建立新地圖 → 匯入 → 上傳 [`massage.kml`](massage.kml)，就會得到一張可在手機 Google Maps 開啟的總圖',
       '', '> 價格、營業時間整理自公開資料（官網、Klook、KKday、Chiang Mai Citylife 等），可能變動，出發前請再確認。地圖上的標記位置為概略，精確位置請以各店 Google 地圖連結為準。', '',
