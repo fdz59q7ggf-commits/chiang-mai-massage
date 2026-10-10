@@ -7,7 +7,8 @@ shops = json.loads((D / 'shops.json').read_text(encoding='utf-8'))
 
 def gmap(s):
     addr = re.sub(r'（[^）]*）', '', s['addr'])
-    return 'https://www.google.com/maps/search/?api=1&query=' + urllib.parse.quote(f"{s['name']} {addr}") + '&hl=en'
+    q = s['name'] + ' Chiang Mai' if s.get('name_only_search') else f"{s['name']} {addr}"
+    return 'https://www.google.com/maps/search/?api=1&query=' + urllib.parse.quote(q) + '&hl=en'
 
 for s in shops:
     s['gmap'] = gmap(s)
@@ -35,7 +36,7 @@ md = ['# 清邁按摩總整理（含 Google 地圖與總地圖）', '',
       '| 想要環境氣氛（1,500銖起/2小時） | Fah Lanna、Makkha |',
       '| 奢華犒賞 | Oasis Spa、Zira Spa、RarinJinda、Dheva Spa（Dhara Dhevi） |',
       '| 免費飯店接送 | Kiyora Spa（市區內） |',
-      '| 離民宿最近（步行10分鐘內，座標概略估算） | Let\'s Relax 夜市店（約200m）、Kunlarat（約300m）、Health Land（約500m）、Makkha 夜市店（約600m）、Fah Lanna 夜市店（約700m） |', '']
+      '| 離民宿最近（步行10分鐘內） | ★ Fah Lanna 夜市店（約60m，就在旁邊）、Let\'s Relax Pavilion（約200m）、Kunlarat（約300m）、Health Land（約500m）、Makkha 夜市店（約600m） |', '']
 for area in AREAS:
     rows = [s for s in shops if s['area'] == area]
     if not rows: continue

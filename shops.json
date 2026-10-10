@@ -5,18 +5,19 @@
   "zh": "★ Fah Lanna 夜市店（民宿旁，必去）",
   "area": "夜市/長康路",
   "tier": "中高價",
-  "addr": "163 Loy Kroh Rd, Chang Khlan, Mueang Chiang Mai 50100",
+  "addr": "Changklan Rd（Pavilion Night Bazaar 旁）, Chang Khlan, Mueang Chiang Mai 50100",
   "hours": "官網12:00-21:00（最後預約20:00；舊資料寫10:00-23:00）",
   "price": "泰式約350銖/小時起",
   "phone": "053 416191",
   "klook": "https://www.klook.com/zh-TW/search/result/?query=Fah%20Lanna%20Spa",
-  "lat": 18.7866,
-  "lng": 98.9958,
-  "desc": "Fah Lanna 的夜市分店，就在民宿旁、步行可到；泰式、腳底、精油、頭肩頸都有，價格比古城本店親民。此分店沒有接送。",
+  "lat": 18.7839362,
+  "lng": 99.0026742,
+  "desc": "Fah Lanna 的夜市分店，Google 地圖位置就在民宿旁（約60公尺）；泰式、腳底、精油、頭肩頸都有，價格比古城本店親民。此分店沒有接送。",
   "trip": "Day4 11/14 17:30 已排入（必去）",
   "name_th": "ฟ้าล้านนา มาสสาจ (ไนท์บาซาร์)",
-  "addr_th": "163 ถนนลอยเคราะห์ ต.ช้างคลาน อ.เมืองเชียงใหม่ จ.เชียงใหม่ 50100",
-  "near_th": "ถนนลอยเคราะห์ ใกล้ไนท์บาซาร์"
+  "addr_th": "ถนนช้างคลาน ข้างพาวิลเลียน ไนท์บาซาร์ ต.ช้างคลาน อ.เมืองเชียงใหม่ จ.เชียงใหม่ 50100",
+  "near_th": "ถนนช้างคลาน ข้างพาวิลเลียน ไนท์บาซาร์",
+  "name_only_search": true
  },
  {
   "id": "healthland",
@@ -240,11 +241,12 @@
   "klook": "https://www.klook.com/zh-TW/search/result/?query=Let%27s%20Relax%20Chiang%20Mai",
   "lat": 18.7848,
   "lng": 99.0006,
-  "desc": "位在 Pavilion 夜市商場內，逛完長康路夜市直接按。",
+  "desc": "在 Pavilion 夜市商場1～2樓（官網仍列為營業中）；Google 地圖用地址搜尋可能會跳到隔壁的 Fah Lanna，請用店名搜尋或直接進 Pavilion 商場找。",
   "trip": "",
   "name_th": "เล็ทส์ รีแลกซ์ สปา (พาวิลเลียน ไนท์บาซาร์)",
   "addr_th": "145/37 ถนนช้างคลาน ต.ช้างคลาน อ.เมืองเชียงใหม่ จ.เชียงใหม่ 50100",
-  "near_th": "ในพาวิลเลียน ไนท์บาซาร์"
+  "near_th": "ในพาวิลเลียน ไนท์บาซาร์",
+  "name_only_search": true
  },
  {
   "id": "letsrelax-onenimman",
