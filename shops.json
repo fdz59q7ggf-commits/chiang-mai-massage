@@ -1,5 +1,24 @@
 [
  {
+  "id": "fahlanna-nb",
+  "name": "Fah Lanna Massage - Night Bazaar",
+  "zh": "★ Fah Lanna 夜市店（民宿旁，必去）",
+  "area": "夜市/長康路",
+  "tier": "中高價",
+  "addr": "163 Loy Kroh Rd, Chang Khlan, Mueang Chiang Mai 50100",
+  "hours": "官網12:00-21:00（最後預約20:00；舊資料寫10:00-23:00）",
+  "price": "泰式約350銖/小時起",
+  "phone": "053 416191",
+  "klook": "https://www.klook.com/zh-TW/search/result/?query=Fah%20Lanna%20Spa",
+  "lat": 18.7866,
+  "lng": 98.9958,
+  "desc": "Fah Lanna 的夜市分店，就在民宿旁、步行可到；泰式、腳底、精油、頭肩頸都有，價格比古城本店親民。此分店沒有接送。",
+  "trip": "Day4 11/14 17:30 已排入（必去）",
+  "name_th": "ฟ้าล้านนา มาสสาจ (ไนท์บาซาร์)",
+  "addr_th": "163 ถนนลอยเคราะห์ ต.ช้างคลาน อ.เมืองเชียงใหม่ จ.เชียงใหม่ 50100",
+  "near_th": "ถนนลอยเคราะห์ ใกล้ไนท์บาซาร์"
+ },
+ {
   "id": "healthland",
   "name": "Health Land Spa & Massage",
   "zh": "健康樂園 Health Land",
@@ -131,25 +150,6 @@
   "name_th": "ฟ้าล้านนา สปา (นิมมาน)",
   "addr_th": "4/1 ถนนนิมมานเหมินท์ ซอย 15 ต.สุเทพ อ.เมืองเชียงใหม่ จ.เชียงใหม่ 50200",
   "near_th": "นิมมาน ซอย 15"
- },
- {
-  "id": "fahlanna-nb",
-  "name": "Fah Lanna Spa (Night Bazaar)",
-  "zh": "Fah Lanna 夜市店",
-  "area": "夜市/長康路",
-  "tier": "中高價",
-  "addr": "163 Loy Kroh Rd, Chang Khlan, Mueang Chiang Mai 50100",
-  "hours": "12:00-21:00（最後預約20:00）",
-  "price": "泰式2小時約1,500銖起",
-  "phone": "",
-  "klook": "https://www.klook.com/zh-TW/search/result/?query=Fah%20Lanna%20Spa",
-  "lat": 18.7866,
-  "lng": 98.9958,
-  "desc": "Loi Kroh 路上，離民宿步行約10分鐘。",
-  "trip": "",
-  "name_th": "ฟ้าล้านนา มาสสาจ (ไนท์บาซาร์)",
-  "addr_th": "163 ถนนลอยเคราะห์ ต.ช้างคลาน อ.เมืองเชียงใหม่ จ.เชียงใหม่ 50100",
-  "near_th": "ถนนลอยเคราะห์ ใกล้ไนท์บาซาร์"
  },
  {
   "id": "oasis-lanna",
