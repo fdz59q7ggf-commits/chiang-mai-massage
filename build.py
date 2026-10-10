@@ -18,7 +18,7 @@ TIERS = ['平價', '中價', '中價連鎖', '中高價', '高價']
 
 # ---------- README ----------
 md = ['# 清邁按摩總整理（含 Google 地圖與總地圖）', '',
-      '6 人清邁行程（2026/11/11–11/18，住 Loi Kroh Road）用的按摩/SPA 清單。',
+      '6 人清邁行程（2026/11/11–11/18，住長康路夜市旁，座標 18°47\'01.9"N 99°00\'07.6"E）用的按摩/SPA 清單。',
       '每間店都有 Google 地圖連結，另外有一張**所有按摩店的總地圖**：', '',
       '- 🗺️ **互動總地圖**：打開 [`index.html`](index.html)（可篩選區域／價位，點標記看介紹與 Google 地圖）。底圖街道與地名為英文（Esri，右上角可切換泰文 OpenStreetMap）；也可切換「Google 地圖（英文）」看每間店周邊',
       '- 🛺 **給嘟嘟車／計程車司機看**：互動總地圖每間店都有「給司機看（泰文）」按鈕，一按就全螢幕顯示大字泰文店名、地標、地址和泰文 Google 地圖，不用複製貼上；下方表格的「🛺 泰文」連結會開泰文介面的 Google 地圖',
@@ -35,7 +35,7 @@ md = ['# 清邁按摩總整理（含 Google 地圖與總地圖）', '',
       '| 想要環境氣氛（1,500銖起/2小時） | Fah Lanna、Makkha |',
       '| 奢華犒賞 | Oasis Spa、Zira Spa、RarinJinda、Dheva Spa（Dhara Dhevi） |',
       '| 免費飯店接送 | Kiyora Spa（市區內） |',
-      '| 離民宿（Loi Kroh Rd）最近 | Makkha 夜市店、Fah Lanna 夜市店、Let\'s Relax Pavilion、Health Land |', '']
+      '| 離民宿最近（步行10分鐘內，座標概略估算） | Let\'s Relax 夜市店（約200m）、Kunlarat（約300m）、Health Land（約500m）、Makkha 夜市店（約600m）、Fah Lanna 夜市店（約700m） |', '']
 for area in AREAS:
     rows = [s for s in shops if s['area'] == area]
     if not rows: continue

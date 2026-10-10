@@ -1,6 +1,6 @@
 # 清邁按摩總整理（含 Google 地圖與總地圖）
 
-6 人清邁行程（2026/11/11–11/18，住 Loi Kroh Road）用的按摩/SPA 清單。
+6 人清邁行程（2026/11/11–11/18，住長康路夜市旁，座標 18°47'01.9"N 99°00'07.6"E）用的按摩/SPA 清單。
 每間店都有 Google 地圖連結，另外有一張**所有按摩店的總地圖**：
 
 - 🗺️ **互動總地圖**：打開 [`index.html`](index.html)（可篩選區域／價位，點標記看介紹與 Google 地圖）。底圖街道與地名為英文（Esri，右上角可切換泰文 OpenStreetMap）；也可切換「Google 地圖（英文）」看每間店周邊
@@ -22,7 +22,7 @@
 | 想要環境氣氛（1,500銖起/2小時） | Fah Lanna、Makkha |
 | 奢華犒賞 | Oasis Spa、Zira Spa、RarinJinda、Dheva Spa（Dhara Dhevi） |
 | 免費飯店接送 | Kiyora Spa（市區內） |
-| 離民宿（Loi Kroh Rd）最近 | Makkha 夜市店、Fah Lanna 夜市店、Let's Relax Pavilion、Health Land |
+| 離民宿最近（步行10分鐘內，座標概略估算） | Let's Relax 夜市店（約200m）、Kunlarat（約300m）、Health Land（約500m）、Makkha 夜市店（約600m）、Fah Lanna 夜市店（約700m） |
 
 ## 夜市/長康路
 
@@ -36,8 +36,8 @@
 | **Kunlarat 按摩**<br>Kunlarat Massage<br>กุลรัตน์ มาสสาจ | 平價 | 泰式/腳底60分約300銖 | 約10:00-23:00 | [📍 英文](https://www.google.com/maps/search/?api=1&query=Kunlarat%20Massage%20164/93%20Changklan%20Rd%2C%20Chang%20Khlan%2C%20Mueang%20Chiang%20Mai%2050100&hl=en)<br>[🛺 泰文](https://www.google.com/maps/search/?api=1&query=Kunlarat%20Massage%20164/93%20Changklan%20Rd%2C%20Chang%20Khlan%2C%20Mueang%20Chiang%20Mai%2050100&hl=th) | 現場/電話 |
 
 - **健康樂園 Health Land**（เฮลท์แลนด์ สปา แอนด์ มาสสาจ เชียงใหม่）：曼谷知名連鎖，CNN評選最幸福按摩店之一；空間大、技師多，6人同時預約最容易，CP值高。官網或電話可預約。 地址：288/55 Changklan Rd, Chang Khlan, Mueang Chiang Mai 50100｜泰文地址：288/55 ถนนช้างคลาน ต.ช้างคลาน อ.เมืองเชียงใหม่ จ.เชียงใหม่ 50100；電話 053-278855。🗓️ Day1 11/11 17:00 已排入
-- **Makkha 夜市店**（มรรคา เฮลท์ แอนด์ สปา (ไนท์บาซาร์)）：就在民宿所在的 Loi Kroh 路上，晚上逛夜市前後最方便。 地址：105 Loi Kroh Rd, Chang Khlan, Mueang Chiang Mai 50100｜泰文地址：105 ถนนลอยเคราะห์ ต.ช้างคลาน อ.เมืองเชียงใหม่ จ.เชียงใหม่ 50100。🗓️ 離民宿最近的中高價選擇
-- **Fah Lanna 夜市店**（ฟ้าล้านนา มาสสาจ (ไนท์บาซาร์)）：Loi Kroh 路上，離民宿步行可到。 地址：163 Loy Kroh Rd, Chang Khlan, Mueang Chiang Mai 50100｜泰文地址：163 ถนนลอยเคราะห์ ต.ช้างคลาน อ.เมืองเชียงใหม่ จ.เชียงใหม่ 50100
+- **Makkha 夜市店**（มรรคา เฮลท์ แอนด์ สปา (ไนท์บาซาร์)）：Loi Kroh 路上，離民宿步行約8分鐘，晚上逛夜市前後最方便。 地址：105 Loi Kroh Rd, Chang Khlan, Mueang Chiang Mai 50100｜泰文地址：105 ถนนลอยเคราะห์ ต.ช้างคลาน อ.เมืองเชียงใหม่ จ.เชียงใหม่ 50100。🗓️ 離民宿最近的中高價選擇
+- **Fah Lanna 夜市店**（ฟ้าล้านนา มาสสาจ (ไนท์บาซาร์)）：Loi Kroh 路上，離民宿步行約10分鐘。 地址：163 Loy Kroh Rd, Chang Khlan, Mueang Chiang Mai 50100｜泰文地址：163 ถนนลอยเคราะห์ ต.ช้างคลาน อ.เมืองเชียงใหม่ จ.เชียงใหม่ 50100
 - **Let's Relax 夜市店**（เล็ทส์ รีแลกซ์ สปา (พาวิลเลียน ไนท์บาซาร์)）：位在 Pavilion 夜市商場內，逛完長康路夜市直接按。 地址：145/37 Changklan Rd, Chang Khlan, Mueang Chiang Mai 50100｜泰文地址：145/37 ถนนช้างคลาน ต.ช้างคลาน อ.เมืองเชียงใหม่ จ.เชียงใหม่ 50100；電話 +66 53 818 498
 - **Kiyora Spa**（คิโยระ สปา）：塔佩門與夜市之間的獲獎SPA，市區內免費飯店接送，6人一起去很方便。 地址：26/1 Chang Moi Rd Soi 2, Chang Moi, Mueang Chiang Mai 50300｜泰文地址：26/1 ซอยช้างม่อย 2 ต.ช้างม่อย อ.เมืองเชียงใหม่ จ.เชียงใหม่ 50300；電話 +66 52 003 268
 - **Kunlarat 按摩**（กุลรัตน์ มาสสาจ）：長康路夜市南段的平價店，逛完夜市就近按腳。 地址：164/93 Changklan Rd, Chang Khlan, Mueang Chiang Mai 50100｜泰文地址：164/93 ถนนช้างคลาน ต.ช้างคลาน อ.เมืองเชียงใหม่ จ.เชียงใหม่ 50100
