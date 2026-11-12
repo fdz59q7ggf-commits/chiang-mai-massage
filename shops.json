@@ -722,5 +722,25 @@
   "name_th": "เทวา สปา (ดาราเทวี)",
   "addr_th": "51/4 ถนนเชียงใหม่-สันกำแพง หมู่ 1 ต.ท่าศาลา อ.เมืองเชียงใหม่ จ.เชียงใหม่ 50000",
   "near_th": "โรงแรมดาราเทวี ถนนเชียงใหม่-สันกำแพง"
+ },
+ {
+  "id": "dn-wellness",
+  "name": "DN Wellness Massage (Nimman)",
+  "zh": "DN Wellness 寧曼店",
+  "area": "寧曼",
+  "tier": "中價",
+  "addr": "95/42 Su Thep, Mueang Chiang Mai 50200（One Nimman 旁，離馬路內縮）",
+  "hours": "10:00-22:00（每天）",
+  "price": "泰式60分350銖、深層泰式500銖、精油60分600銖、2小時套餐650～1,200銖",
+  "phone": "+66 99 295 3632",
+  "klook": "",
+  "lat": 18.8005746,
+  "lng": 98.9672641,
+  "desc": "寧曼 One Nimman 旁（約50m），Think Park 夜市約70m；Google 評分約4.8（近千則）。泰式、腳底、精油、草藥球、辦公室症候群、運動按摩都有，另有 2～3 小時套餐（650～1,900銖，其中 DN Face Renewal 與 Body & Skin Renewal 需提前預約）。可用 Line @644qfjzs、WhatsApp、Telegram 預約。",
+  "trip": "",
+  "name_th": "ดีเอ็น เวลเนส มาสสาจ (นิมมาน)",
+  "addr_th": "95/42 ต.สุเทพ อ.เมืองเชียงใหม่ จ.เชียงใหม่ 50200",
+  "near_th": "ข้างวันนิมมาน นิมมานเหมินท์",
+  "name_only_search": true
  }
 ]
